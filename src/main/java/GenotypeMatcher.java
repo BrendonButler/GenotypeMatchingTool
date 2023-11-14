@@ -6,15 +6,15 @@ import java.util.Random;
 public class GenotypeMatcher {
 
     private static final char dominantAlleleCode = 'B', recessiveAlleleCode = 'b';
-    private static final int paternalAlleleCount = 100, maternalAlleleCount = 100;
-    private static final List<Character> paternalAlleles = Collections.nCopies(paternalAlleleCount, dominantAlleleCode);
-    private static final List<Character> maternalAlleles = Collections.nCopies(maternalAlleleCount, recessiveAlleleCode);
+    private static final int dominantAlleleCount = 100, recessiveAlleleCount = 100;
+    private static final List<Character> dominantAlleles = Collections.nCopies(dominantAlleleCount, dominantAlleleCode);
+    private static final List<Character> recessiveAlleles = Collections.nCopies(recessiveAlleleCount, recessiveAlleleCode);
     private static final int totalOffspring = 100;
     private static final boolean replacement = true;
 
     public static void main(String[] args) {
-        List<Character> parentPool = new ArrayList<>(paternalAlleles);
-        parentPool.addAll(maternalAlleles);
+        List<Character> parentPool = new ArrayList<>(dominantAlleles);
+        parentPool.addAll(recessiveAlleles);
         int homozygousDominant = 0, homozygousRecessive = 0, heterozygous = 0;
 
         while ((homozygousDominant + homozygousRecessive + heterozygous) < totalOffspring) {
